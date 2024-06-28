@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        /*Isso aqui pode ser um botão*/
+        /*Fiz uma div no html e configurei o style dela aqui,*/
+        div#area{
+            font: normal 20pt Arial;
+            background: rgb(42, 139, 42);
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            transition: background 0.3s ease; /* Adicionado para suavizar a transição do background */
+        }
+        
+         
+    </style>
+</head>
+<body>
+    <audio id="myAudio">
+        <source src="song.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
+      
+    <div id="area"> <!--Div ganhou um id chamado área e foi atribuido a essa div um evento dom que têm inteação com um ponteiro este evento recebeu uma função que recebeu um parametro que é a id area.-->
+        interaja
+    </div>
+
+    <script>
+        var a = document.getElementById('area');
+        var audio = document.getElementById('myAudio');
+        a.addEventListener('click', clicar)
+        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseout', sair)
+        function clicar() {
+           //selecionou a div usando o metodo get colocando em uma variável e selecionando qual seria a id no caso a id area.
+            a.innerText = 'Clicou!'
+            a.style.background = 'red'
+            var audio = document.getElementById('myAudio');
+            audio.play();
+            
+        }
+        function entrar() {
+            a.innerText = 'Sai de cima!'   
+            a.style.background = 'url("pistol.jpg") no-repeat center center';
+            a.style.backgroundSize = 'cover';
+            a.style.color = 'black'
+                        
+        }
+        function sair() { 
+            a.innerText = 'To de boas...'
+            a.style.background = 'green'
+            audio.pause();
+            audio.currentTime = 0; // Reinicia o áudio
+            
+        }
+    </script>
+</body>
+</html>
